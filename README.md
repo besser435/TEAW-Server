@@ -1,5 +1,10 @@
 # TEAW-Server
-Docs about TEAW server infastructure.
+Stuff for the ToEndAllWars Minecraft server. Mainly just docs.
 
-## Timezone
-In order for Crafy to pickup on timezone changes, you must run `sudo dpkg-reconfigure tzdata`. Just changing the timezone with some other command wont let it pickup on changes.
+## Documentation 
+For info about the server panel, operating system, and networking, see [panel-and-os.md](docs/panel-and-os.md)
+
+For info about the actual game and config files, see [game-config.md](docs/game-config.md)
+
+
+
