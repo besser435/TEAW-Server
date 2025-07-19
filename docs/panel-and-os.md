@@ -53,23 +53,50 @@ crafty directory. Can also run it on individual files/directories.
 - `sudo su crafty` switch to the crafty user. Will need to close the session to get back to the original user.
 
 ## Crafty Panel Multi-factor Authentication
+uhhhh yeah do that
+
+## Crafty Users
+There are three user accounts. besser and Theeno have superuser accounts. Blues has a more limited account.
+When creating new users, ensure they reset their passwords, and have as few permissions as possible. 
+
+<sub>why the hell does crafty not have a "reset password on next logon" feature like AD or AMP</sub>
 
 ## Firewall
-close bluemap port when migrating to cloudflare tunnel
+Only open port is 25565/TCP in for Minecraft, and 22000 for SSH.
+- `ufw status verbose` status, or `ufw status numbered`
+- `sudo ufw allow 25565/tcp` open a port
+- `ufw delete` delete a rule
 
 ## Cloudflare Tunnels
+Le tunnels:
+- Bluemap on port 8100 at [map.toendallwars.org]([map.toendallwars.org) for HTTP `localhost:8100`
+- TEAW API on port 1850 at [tapi.toendallwars.org]([tapi.toendallwars.org) for HTTP `localhost:1850`
+- Crafty Panel on port 8443 for HTTPS `localhost:8443`
 
-## DNS Records
+For the Crafty tunnel to work, `socks` in the connection settings needs to be enabled, along with `No TLS Verify` under
+TLS.
 
 ## SSH
-Fail2ban would be poggers, set up key based auth before deploying
+SSH uses an Ed25519 key, password auth is disabled.
+SSH is on port 22000 to stop naive attackers from spamming port 22, as seen by `cat /var/log/auth.log | grep sshd.*Failed`
 
-https://www.reddit.com/r/homelab/comments/5pydet/so_youve_got_ssh_how_do_you_secure_it/
-scary!
+Config file is `sudo nano /etc/ssh/sshd_config`. 
+
+See enabled auth methods with `sshd -T | grep -i authentication`
+
+For changes to take effect, use`systemctl daemon-reload; systemctl restart ssh.socket`
+Restart SSH with `sudo systemctl restart ssh`
+
+(sometimes you have to use one or the other, so if one doesn't work to apply the changes, try the other method.)
+
+Note that when generating a key from PuTTYgen, use the "Public key for pasting into OpenSSH authorized_keys file" 
+(top of the window) key, rather than exporting the public key.
+
+[Scary!](https://www.reddit.com/r/homelab/comments/5pydet/so_youve_got_ssh_how_do_you_secure_it/)
 
 ## Maintenance
-- Verify backups. This includes downloading them on a separate computer and ensuring the server starts and there are
+- Verify backups (RAID is not a backup 😔). This includes downloading them on a separate computer and ensuring the server starts and there are
   no missing files.
 - Verify the health of the RAID array with `cat /proc/mdstat` and its disks `smartctl -a /dev/nvme0n1`, `smartctl -a /dev/nvme1n1`.
   Also check general resource usage with `btop`.
-- Update the OS and its packages.
+- Update the OS and its packages. This may restart the Crafty service!
