@@ -1,4 +1,4 @@
-The path of the server is
+The path of TEAW is
 `/var/opt/minecraft/crafty/crafty-4/servers/e97c3311-4330-4fb8-be4a-b74cfa6b734b`
 
 ## Timezone
@@ -52,11 +52,8 @@ crafty directory. Can also run it on individual files/directories.
 - `ls -l ./(directory or file)` shows the perms of a file or directory.
 - `sudo su crafty` switch to the crafty user. Will need to close the session to get back to the original user.
 
-## Crafty Panel Multi-factor Authentication
-uhhhh yeah do that
-
 ## Crafty Users
-There are three user accounts. besser and Theeno have superuser accounts. Blues has a more limited account.
+There are three user accounts. besser and Theeno have superuser accounts. Game masters have a more limited account.
 When creating new users, ensure they reset their passwords, and have as few permissions as possible. 
 
 <sub>why the hell does crafty not have a "reset password on next logon" feature like AD or AMP</sub>
@@ -73,12 +70,15 @@ Le tunnels:
 - TEAW API on port 1850 at [tapi.toendallwars.org]([tapi.toendallwars.org) for HTTP `localhost:1850`
 - Crafty Panel on port 8443 for HTTPS `localhost:8443`
 
-For the Crafty tunnel to work, `socks` in the connection settings needs to be enabled, along with `No TLS Verify` under
+For the Crafty tunnel to work, `socks` in the tunnel connection settings needs to be enabled, along with `No TLS Verify` under
 TLS.
+
+## OS and RAID
+This was configured with Hetzner's [installimage](https://docs.hetzner.com/robot/dedicated-server/operating-systems/installimage/) script.
 
 ## SSH
 SSH uses an Ed25519 key, password auth is disabled.
-SSH is on port 22000 to stop naive attackers from spamming port 22, as seen by `cat /var/log/auth.log | grep sshd.*Failed`
+SSH is on port 22000 to stop naive attackers from spamming port 22, as seen by `cat /var/log/auth.log`
 
 Config file is `sudo nano /etc/ssh/sshd_config`. 
 
