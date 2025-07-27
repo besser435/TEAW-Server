@@ -52,6 +52,10 @@ crafty directory. Can also run it on individual files/directories.
 - `ls -l ./(directory or file)` shows the perms of a file or directory.
 - `sudo su crafty` switch to the crafty user. Will need to close the session to get back to the original user.
 
+> [!NOTE]
+> The chown and chmod commands should be run anytime a file is added to the server directory manually, so that Crafty
+> and Minecraft can interact with it.
+
 ## Crafty Users
 There are three user accounts. besser and Theeno have superuser accounts. Game masters have a more limited account.
 When creating new users, ensure they reset their passwords, and have as few permissions as possible. 
