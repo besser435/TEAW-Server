@@ -1,0 +1,4 @@
+BACKUP_SERVER = "http://157.180.15.120:5001"
+AUTH_TOKEN = ""
+LOCAL_BACKUP_DIR = r"./downloaded_backups"
+MAX_BACKUPS = 2
