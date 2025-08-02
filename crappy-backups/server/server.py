@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file, abort
+from flask import Flask, request, send_file, abort, Response
 import os
 import server_config as conf
 from pathlib import Path
@@ -19,9 +19,14 @@ def download_latest_backup():
     if not zip_files:
         abort(404, description="No backup files found.")
 
-    latest_file = max(zip_files, key=lambda f: f.stat().st_birthtime)
+    latest_file = max(zip_files, key=lambda f: f.stat().st_ctime)
+    # st_ctime shows as deprecated on win32, but works on Linux
 
-    return send_file(latest_file, as_attachment=True)
-
+    return send_file(
+        latest_file,
+        mimetype="application/zip",
+        as_attachment=True,
+        download_name=os.path.basename(latest_file)
+    )
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)
