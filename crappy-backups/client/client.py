@@ -58,7 +58,7 @@ def extract_filename_from_headers(headers):
 
 
 def prune_old_backups():
-    files = sorted(conf.LOCAL_BACKUP_DIR.glob("*.zip"), key=lambda f: f.stat().st_mtime, reverse=True)
+    files = sorted(Path(conf.LOCAL_BACKUP_DIR).glob("*.zip"), key=lambda f: f.stat().st_mtime, reverse=True)
     for old_file in files[conf.MAX_BACKUPS:]:
         print(f"Removing old backup: {old_file.name}")
         old_file.unlink()
