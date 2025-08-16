@@ -1,9 +1,9 @@
   
 version:
   # This is the current version of Towny. Please do not edit.
-  version: 0.100.3.12
+  version: 0.101.2.0
   # This is for showing the changelog on updates. Please do not edit.
-  last_run_version: 0.100.3.12
+  last_run_version: 0.101.2.0
   
 language:
   # The language file you wish to use for your default locale. Your default locale is what
@@ -588,6 +588,15 @@ global_town_settings:
     # When true players cannot become hungrier when in their own or an allied town.
     also_prevent_saturation_loss: 'true'
   
+  # These beacons settings will only work on Paper or Paper-derived servers. They will not have any effect on Spigot servers.
+  beacons:
+  
+    # When true, a beacon placed in a town will only affect the allies of the town. This includes residents, nation residents and allied nation residents.
+    beacons_for_allies_only: 'false'
+  
+    # When true, conquered towns are not considered allies.
+    exclude_conquered_towns: 'false'
+  
   # Number of seconds that must pass before pvp can be toggled by a town.
   # Applies to residents of the town using /res toggle pvp, as well as
   # plots having their PVP toggled using /plot toggle pvp.
@@ -613,6 +622,12 @@ global_town_settings:
   # Enables the [~Home] TownName - PlotOwner - PlotName message line..
   # If false players will not be shown any notifications when they move in and out of towns, between plots.
   show_town_notifications: 'true'
+  
+  # While true, outlaws can always be harmed in towns they are outlawed in.
+  force_pvp_on_outlaws: 'false'
+  
+  # While true, outlaws can always harm players in towns they are outlawed in, despite the town pvp setting.
+  allows_outlaws_to_always_pvp: 'false'
   
   # Can outlaws roam freely on the towns they are outlawed in?
   # If false, outlaws will be teleported away if they spend too long in the towns they are outlawed in.
@@ -673,7 +688,7 @@ global_town_settings:
   # If set to true, if a nation is disbanded due to a lack of residents, the capital will be refunded the cost of nation creation.
   refund_disband_low_residents: 'true'
   
-  # List of animals which can be killed on farm plots by town residents.
+  # List of animals which can be killed on farm plots by players who have been given destroy plot permissions to destroy.
   farm_animals: PIG,COW,CHICKEN,SHEEP,MOOSHROOM
   
   # The maximum number of residents that can be joined to a town. Setting to 0 disables this feature.
@@ -726,6 +741,9 @@ global_town_settings:
   # If People should keep their experience on death in an arena townblock.
   # Is not guaranteed to work with other keep experience plugins!
   keep_experience_on_death_in_arena: 'false'
+  
+  # While true, weapons and armour items worn by players in Arena plots will not lose durability.
+  prevent_item_degrading_in_arenas: 'false'
   
   # The Maximum price that a town can be put for sale at. This refers to the price that
   # someone could pay if they ran /t buytown, to buy a town that has been put up for sale.
@@ -873,6 +891,17 @@ global_nation_settings:
   # The maximum amount of allies that a nation can have, set to -1 to have no limit.
   max_allies: '-1'
   
+  # While true, conquered towns will be considered a member of good standing in the nation.
+  # When set to false CombatUtil#isAlly() tests will treat conquered towns and their nations as not allied.
+  # Setting this to false could result in strange unforseen behaviour.
+  are_conquered_towns_considered_allies: 'true'
+  
+  # While true, conquered towns will be considered a member of good standing in the nation, and will be
+  # treated as normal nation members when plot perms are calculated.
+  # When set to false plot permission tests will treat conquered towns' residents as not members of their nations,
+  # preventing them from using their host nation's plots while the nation's towns have nation plot perms enabled.
+  are_conquered_towns_given_nation_plot_perms: 'true'
+  
   proximity:
   
     # The maximum number of townblocks a town's homeblock can be away from their nation capital's homeblock.
@@ -948,7 +977,7 @@ plugin:
       world_name_uses_world_key: 'false'
   
       # The url that players will be prompted to open when clicking on a coordinate in a status screen.
-      # Valid placeholders are {world}, {x}, and {y}, for the world name, x, and y coordinates respectively.
+      # Valid placeholders are {world}, {x}, and {z}, for the world name, x, and z coordinates respectively.
       url: https://example.com/map/?worldname={world}&mapname=flat&zoom=5&x={x}&y=64&z={z}
   
   day_timer:
@@ -1097,11 +1126,33 @@ filters_colour_chat:
     enemy: '&c'
   
   
-############################################################
-# +------------------------------------------------------+ #
-# |             block/item/mob protection                | #
-# +------------------------------------------------------+ #
-############################################################
+###########################################################################
+# +---------------------------------------------------------------------+ #
+# |                      block/item/mob protection                      | #
+# |                                                                     | #
+# | This section has settings for what is considered a item_use item    | #
+# | and switch blocks, as well as settings related to mobs and their    | #
+# | interactions.                                                       | #
+# | In the item_use and switch ids sections you are able to use the     | #
+# | Bukkit Material names which are listed at this webpage:             | #
+# | https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html   | #
+# |                                                                     | #
+# | You are also able to use groups that are made in Towny. Group names | #
+# | include:                                                            | #
+# | AXES, SWORDS, BOWS, WEAPONS, ARMOURS, DYES, REDSTONE_INTERACTABLES, | #
+# | POTTED_PLANTS, FLOWERS, ORES, SAPLINGS, PLANTABLES, CROPS, TREES,   | #
+# | LEAVES, BEDS, SIGNS, TORCHES, SKULLS, BOATS, MINECARTS, WOOD_DOORS, | #
+# | DOORS, FENCE_GATES, TRAPDOORS, SHULKER_BOXES, BUTTONS, BUCKETS,     | #
+# | PRESSURE_PLATES, NON_WOODEN_PRESSURE_PLATES, COPPER_BLOCKS,         | #
+# | WEATHERABLE_BLOCKS, PROJECTILE_TRIGGERED_REDSTONE, WAXED_BLOCKS,    | #
+# | CANDLES, ITEM_FRAMES, HANGING_ENTITIES, CAMPFIRES, BOOK_CONTAINERS, | #
+# | PLACEABLE_BOOKS, HARVESTABLE_BERRIES, MINECART_KILLERS, AIR_TYPES,  | #
+# | UNSTRIPPED_WOOD, CAULDRONS, FILLED_CAULDRONS, PLANTS, LIQUID_BLOCKS,| #
+# | CAULDRON_FILLABLE, HOES, BANNERS, BRUSHABLE_BLOCKS, CORAL_FANS,     | #
+# | PROJECTILE_BREAKABLE_BLOCKS, NOT_SOLID_BLOCKS, FALLING_BLOCKS,      | #
+# | EXPLODABLE_ATTACHABLES                                              | #
+# +---------------------------------------------------------------------+ #
+###########################################################################
   
 protection:
   
@@ -1142,9 +1193,9 @@ protection:
   town_prevent_villager_breeding: 'false'
   
   # A comma seperated list of spawn causes, if an entity has a spawn cause that is in this list they will not be removed by town mob removal.
-  # For the list of valid spawn causes, see https://jd.papermc.io/paper/1.20/org/bukkit/event/entity/CreatureSpawnEvent.SpawnReason.html
+  # For the list of valid spawn causes, see https://jd.papermc.io/paper/1.21.4/org/bukkit/event/entity/CreatureSpawnEvent.SpawnReason.html
   # Due to technical reasons, this setting only works on Paper servers.
-  town_mob_removal_ignored_spawn_causes: ''
+  town_mob_removal_ignored_spawn_causes: ',TRIAL_SPAWNER'
   
   # Disable creatures triggering stone pressure plates
   disable_creature_pressureplate_stone: 'true'
@@ -1183,11 +1234,11 @@ protection:
   
   # permitted Potion Types https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionType.html
   # ABSORPTION, BLINDNESS, CONFUSION, DAMAGE_RESISTANCE, FAST_DIGGING, FIRE_RESISTANCE, HARM, HEAL, HEALTH_BOOST, HUNGER, 
-  # INCREASE_DAMAGE, INVISIBILITY, JUMP, NIGHT_VISION, POISON, REGENERATION, SATURATION, SLOW , SLOW_DIGGING, 
-  # SPEED, WATER_BREATHING, WEAKNESS, WITHER.
+  # INCREASE_DAMAGE, INVISIBILITY, JUMP, NIGHT_VISION, POISON, REGENERATION, SATURATION, SLOW, SLOW_DIGGING, 
+  # SPEED, WATER_BREATHING, WEAKNESS, WITHER, WIND_CHARGED, WEAVING, INFESTED, OOZING.
   
   # When preventing PVP prevent the use of these potions.
-  potion_types: BLINDNESS,CONFUSION,HARM,HUNGER,POISON,SLOW,SLOW_DIGGING,WEAKNESS,WITHER
+  potion_types: BLINDNESS,CONFUSION,HARM,HUNGER,POISON,SLOW,SLOW_DIGGING,WEAKNESS,WITHER,WIND_CHARGED,WEAVING,INFESTED,OOZING
   
   # When set to true, players with the Frost Walker enchant will need to be able to build where they are attempting to freeze.
   prevent_frost_walker_freezing: 'false'
@@ -1444,6 +1495,18 @@ invite_system:
   #e.g Purging database or removing a large amount of townblocks
   cancel_command: cancel
   
+  # The format applied to the clickable confirmations.
+  #e.g [/accept] would appear as default.
+  confirmation_format: '[/%s]'
+  
+  # The colour used to show the accept and confirm commands.
+  # Allowed colours: <black>,<dark_blue>,<dark_green>,<dark_aqua>,<dark_red>,<dark_purple>,<gold>,<gray>,<dark_gray>,<blue>,<green>,<aqua>,<red>,<light_purple>,<yellow>,<white>
+  confirmation_yes_colour: <green>
+  
+  # The colour used to show the deny and cancel commands.
+  # Allowed colours: <black>,<dark_blue>,<dark_green>,<dark_aqua>,<dark_red>,<dark_purple>,<gold>,<gray>,<dark_gray>,<blue>,<green>,<aqua>,<red>,<light_purple>,<yellow>,<white>
+  confirmation_no_colour: <red>
+  
   # How many seconds before a confirmation times out for the receiver.
   # This is used for cost-confirmations and confirming important decisions.
   confirmation_timeout: '20'
@@ -1632,7 +1695,7 @@ economy:
     # The price for a town to expand one townblock.
     price_claim_townblock: '0'
   
-    # How much every additionally claimed townblock increases in cost. Set to 1 to deactivate this. 1.3 means +30% to every bonus claim block cost.
+    # How much every additionally claimed townblock increases in cost. Set to 1 to deactivate this. 1.3 means +30% to the cost of every townblock claimed.
     price_claim_townblock_increase: '1.0'
   
     # The maximum price for an additional townblock. No matter how many blocks a town has the price will not be above this. Set to -1 to deactivate this.
@@ -1650,7 +1713,7 @@ economy:
     # How much every extra bonus block costs more. Set to 1 to deactivate this. 1.2 means +20% to every bonus claim block cost.
     price_purchased_bonus_townblock_increase: '1.0'
   
-    # The maximum price that bonus townblocks can cost to purchase. Set to -1.0 to deactivate this maxium.
+    # The maximum price that bonus townblocks can cost to purchase. Set to -1.0 to deactivate this maximum.
     price_purchased_bonus_townblock_max_price: '-1.0'
   
   
@@ -1724,6 +1787,9 @@ economy:
   
     # The name of the account that all money that normally disappears goes into.
     server_account: towny-server
+  
+    # The UUID of the account that all money that normally disappears goes into.
+    server_account_uuid: a73f39b0-1b7c-2930-b4a3-ce101812d926
   
     # Turn on/off whether all transactions that normally don't have a second party are to be done with a certain account.
     # Eg: The money taken during Daily Taxes is just removed. With this on, the amount taken would be funneled into an account.
@@ -1810,6 +1876,11 @@ economy:
     # If set to true the penalty is calculated (# of plots overclaimed X price_town_overclaimed_upkeep_penalty).
     price_town_overclaimed_upkeep_penalty_plotbased: 'false'
   
+    # An optional price that a town must pay for each outpost they own.
+    # This number is added to the town upkeep before other upkeep modifiers are applied to the Town's upkeep costs.
+    # Note: when town_plotbased_upkeep is true, this cost is added after all other upkeep modifiers are applied.
+    per_outpost_cost: '0.0'
+  
     # If enabled and you set a negative upkeep for the town
     # any funds the town gains via upkeep at a new day
     # will be shared out between the plot owners.
@@ -1895,6 +1966,17 @@ economy:
   
       # Does a conquered town which cannot pay the nation tax get deleted?
       does_nation_tax_delete_conquered_towns_that_cannot_pay: 'false'
+  
+  advanced:
+  
+    # When enabled, Towny will use UUIDs when communicating with your economy plugin.
+    # Most users will never have to touch this, but for existing servers this option will automatically be set to false.
+    # If this option is disabled and you wish to avoid losing data, use the `/townyadmin eco convert modern` command to convert.
+    modern: 'true'
+  
+    # The UUID version to use for non-player accounts. This is used so that economy plugins can more easily differentiate between player and NPC accounts.
+    # The default is -1, which disables modifying npc uuids.
+    npc_uuid_version: '-1'
   
   
 ############################################################
@@ -2006,7 +2088,7 @@ townblocktypes:
     mapKey: F
     itemUseIds: ''
     switchIds: ''
-    allowedBlocks: COW_SPAWN_EGG,GOAT_SPAWN_EGG,MOOSHROOM_SPAWN_EGG,BAMBOO,BAMBOO_SAPLING,JUNGLE_LOG,JUNGLE_SAPLING,JUNGLE_LEAVES,OAK_LOG,OAK_SAPLING,OAK_LEAVES,BIRCH_LOG,BIRCH_SAPLING,BIRCH_LEAVES,ACACIA_LOG,ACACIA_SAPLING,ACACIA_LEAVES,DARK_OAK_LOG,DARK_OAK_SAPLING,DARK_OAK_LEAVES,SPRUCE_LOG,SPRUCE_SAPLING,SPRUCE_LEAVES,BEETROOTS,COCOA,CHORUS_PLANT,CHORUS_FLOWER,SWEET_BERRY_BUSH,KELP,SEAGRASS,TALL_SEAGRASS,GRASS,TALL_GRASS,FERN,LARGE_FERN,CARROTS,WHEAT,POTATOES,PUMPKIN,PUMPKIN_STEM,ATTACHED_PUMPKIN_STEM,NETHER_WART,COCOA,VINE,MELON,MELON_STEM,ATTACHED_MELON_STEM,SUGAR_CANE,CACTUS,ALLIUM,AZURE_BLUET,BLUE_ORCHID,CORNFLOWER,DANDELION,LILAC,LILY_OF_THE_VALLEY,ORANGE_TULIP,OXEYE_DAISY,PEONY,PINK_TULIP,POPPY,RED_TULIP,ROSE_BUSH,SUNFLOWER,WHITE_TULIP,WITHER_ROSE,CRIMSON_FUNGUS,CRIMSON_STEM,CRIMSON_HYPHAE,CRIMSON_ROOTS,MUSHROOM_STEM,NETHER_WART_BLOCK,BROWN_MUSHROOM,BROWN_MUSHROOM_BLOCK,RED_MUSHROOM,RED_MUSHROOM_BLOCK,SHROOMLIGHT,WARPED_FUNGUS,WARPED_HYPHAE,WARPED_ROOTS,WARPED_STEM,WARPED_WART_BLOCK,WEEPING_VINES_PLANT,WEEPING_VINES,NETHER_SPROUTS,SHEARS,MELON_SEEDS,FARMERSDELIGHT_WILD_POTATOES,POTTED_ACACIA_SAPLING,TWISTING_VINES_PLANT,OAK_WOOD,SPRUCE_WOOD,FLOWERING_AZALEA_LEAVES,FARMERSDELIGHT_WILD_RICE,AZALEA,SMALL_DRIPLEAF,POTTED_BIRCH_SAPLING,POTTED_OAK_SAPLING,FARMERSDELIGHT_WILD_CABBAGES,FARMERSDELIGHT_WILD_TOMATOES,COCOA_BEANS,DARK_OAK_WOOD,POTTED_JUNGLE_SAPLING,POTTED_SPRUCE_SAPLING,JUNGLE_WOOD,PUMPKIN_SEEDS,FARMERSDELIGHT_WILD_CARROTS,FARMERSDELIGHT_WILD_ONIONS,FLOWERING_AZALEA,AZALEA_LEAVES,ACACIA_WOOD,WHEAT_SEEDS,FARMERSDELIGHT_WILD_BEETROOTS,BIG_DRIPLEAF,BIRCH_WOOD,POTTED_DARK_OAK_SAPLING,SEA_PICKLE,BEETROOT_SEEDS,CHORUS_FRUIT
+    allowedBlocks: PALE_OAK_LOG,PALE_MOSS_BLOCK,PALE_MOSS_CARPET,PALE_OAK_SAPLING,PALE_HANGING_MOSS,PALE_OAK_LEAVES,CLOSED_EYEBLOSSOM,OPEN_EYEBLOSSOM,COW_SPAWN_EGG,GOAT_SPAWN_EGG,MOOSHROOM_SPAWN_EGG,BAMBOO,BAMBOO_SAPLING,JUNGLE_LOG,JUNGLE_SAPLING,JUNGLE_LEAVES,OAK_LOG,OAK_SAPLING,OAK_LEAVES,BIRCH_LOG,BIRCH_SAPLING,BIRCH_LEAVES,ACACIA_LOG,ACACIA_SAPLING,ACACIA_LEAVES,DARK_OAK_LOG,DARK_OAK_SAPLING,DARK_OAK_LEAVES,SPRUCE_LOG,SPRUCE_SAPLING,SPRUCE_LEAVES,BEETROOTS,COCOA,CHORUS_PLANT,CHORUS_FLOWER,SWEET_BERRY_BUSH,KELP,SEAGRASS,TALL_SEAGRASS,GRASS,TALL_GRASS,FERN,LARGE_FERN,CARROTS,WHEAT,POTATOES,PUMPKIN,PUMPKIN_STEM,ATTACHED_PUMPKIN_STEM,NETHER_WART,COCOA,VINE,MELON,MELON_STEM,ATTACHED_MELON_STEM,SUGAR_CANE,CACTUS,ALLIUM,AZURE_BLUET,BLUE_ORCHID,CORNFLOWER,DANDELION,LILAC,LILY_OF_THE_VALLEY,ORANGE_TULIP,OXEYE_DAISY,PEONY,PINK_TULIP,POPPY,RED_TULIP,ROSE_BUSH,SUNFLOWER,WHITE_TULIP,WITHER_ROSE,CRIMSON_FUNGUS,CRIMSON_STEM,CRIMSON_HYPHAE,CRIMSON_ROOTS,MUSHROOM_STEM,NETHER_WART_BLOCK,BROWN_MUSHROOM,BROWN_MUSHROOM_BLOCK,RED_MUSHROOM,RED_MUSHROOM_BLOCK,SHROOMLIGHT,WARPED_FUNGUS,WARPED_HYPHAE,WARPED_ROOTS,WARPED_STEM,WARPED_WART_BLOCK,WEEPING_VINES_PLANT,WEEPING_VINES,NETHER_SPROUTS,SHEARS,MELON_SEEDS,FARMERSDELIGHT_WILD_POTATOES,POTTED_ACACIA_SAPLING,TWISTING_VINES_PLANT,OAK_WOOD,SPRUCE_WOOD,FLOWERING_AZALEA_LEAVES,FARMERSDELIGHT_WILD_RICE,AZALEA,SMALL_DRIPLEAF,POTTED_BIRCH_SAPLING,POTTED_OAK_SAPLING,FARMERSDELIGHT_WILD_CABBAGES,FARMERSDELIGHT_WILD_TOMATOES,COCOA_BEANS,DARK_OAK_WOOD,POTTED_JUNGLE_SAPLING,POTTED_SPRUCE_SAPLING,JUNGLE_WOOD,PUMPKIN_SEEDS,FARMERSDELIGHT_WILD_CARROTS,FARMERSDELIGHT_WILD_ONIONS,FLOWERING_AZALEA,AZALEA_LEAVES,ACACIA_WOOD,WHEAT_SEEDS,FARMERSDELIGHT_WILD_BEETROOTS,BIG_DRIPLEAF,BIRCH_WOOD,POTTED_DARK_OAK_SAPLING,SEA_PICKLE,BEETROOT_SEEDS,CHORUS_FRUIT
   - name: bank
     cost: 0.0
     tax: 0.0
@@ -2099,6 +2181,9 @@ jail:
   # Most types of unjailing result in a player being teleported when they are freed.
   # Setting this to false will prevent that teleporting, resulting in the player not being teleported when they are freed.
   unjailed_players_get_teleported: 'true'
+  
+  # When enabled, player that can pay their bail will see a title message telling them how to pay their bail.
+  show_bail_command_in_title_message: 'false'
   
   
 ############################################################
@@ -2404,6 +2489,10 @@ claiming:
   
 spawning:
   
+  # If enabled tries to find a safe location when teleporting to a town spawn/nation spawn/outpost
+  # can be used to prevent players from making kill boxes at those locations.
+  safe_teleport: 'false'
+  
   # Decides whether confirmations should appear if you spawn to an area with an associated cost.
   spawn_cost_warnings: 'true'
   
@@ -2458,7 +2547,7 @@ spawning:
     is_nation_ally_spawning_to_town_requiring_public_status: 'false'
   
     # When set to true, a player that is trusted by a town is allowed to spawn to the town as if they were a resident.
-    # Allows allows the residents of entire an town when that town is trusted by the town.
+    # Allows the residents of entire an town when that town is trusted by the town.
     do_trusted_residents_count_as_residents: 'false'
   
     # When a resident joins a town, should they be prompted to use spawn to the town?
