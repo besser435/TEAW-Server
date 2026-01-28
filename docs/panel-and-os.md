@@ -33,7 +33,7 @@ to not be in the Crafty directory)
 
 > [!CAUTION]
 > Do NOT enable the "Compress Backup" option. The warning for this sounds like it enables some kind of world trimming or non-filesystem
-leve compression, which could break the world. 
+level compression, which could break the world. 
 
 ## Crafty TEAW Config
 This section is for the server config options in the panel.
