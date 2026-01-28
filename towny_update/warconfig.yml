@@ -51,10 +51,10 @@ war:
     do_new_towns_collect_war_tokens: 'false'
   
   # When true, players cannot join a town while that town has a pending or active war.
-  war_prevents_joining_town: 'false'
+  war_prevents_joining_town: 'true'
   
   # When true, mayors cannot join a nation while that nation has a pending or active war.
-  war_prevents_joining_nation: 'false'
+  war_prevents_joining_nation: 'true'
   
   # When true, players cannot use /t leave while their town has a pending or active war.
   war_prevents_leaving_town: 'false'
@@ -71,11 +71,14 @@ war:
   # When true, nations with a war in any phase cannot deposit to their banks.
   war_prevents_depositing_to_nation_bank: 'false'
   
+
+
+  
   # When true, players cannot join a town while that town has an active war.
-  active_war_prevents_joining_town: 'false'
+  active_war_prevents_joining_town: 'true'
   
   # When true, mayors cannot join a nation while that nation has an active war.
-  active_war_prevents_joining_nation: 'false'
+  active_war_prevents_joining_nation: 'true'
   
   # When true, players cannot use /t leave while their town has an active war.
   active_war_prevents_leaving_town: 'false'
@@ -84,10 +87,10 @@ war:
   active_war_prevents_leaving_nation: 'true'
   
   # When true, towns with active wars cannot be deleted.
-  active_war_prevents_deleting_town: 'false'
+  active_war_prevents_deleting_town: 'true'
   
   # When true, nations with active wars cannot be deleted.
-  active_war_prevents_deleting_nation: 'false'
+  active_war_prevents_deleting_nation: 'true'
   
   # When true, while Towns have an active war, mob spawns will be forced on.
   active_war_prevents_mob_removal: 'false'
@@ -136,7 +139,7 @@ war:
   townblocks:
   
     # If true, town members and their allies can regen health on plots during war, when they outnumber the attackers.
-    healable: 'true'
+    healable: 'false'
   
     # How many seconds pass between townblock hp being harmed/healed. This is defaulted to 5, and you probably want to leave this alone.
     # Does not accept numbers lower than 3.
