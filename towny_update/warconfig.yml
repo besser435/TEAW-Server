@@ -1191,7 +1191,7 @@ discord:
   enabled: 'true'
   
   # Supply your valid discord webhook url here.
-  webhook_url: https://discord.com/api/webhooks/1184896632525967521/QmdR8_bQ_kO9JB1FhYDrKVjg5eJxYp4jFtk2Ga81ZclxZLOjcSQnbNoe6muc3SxjDMMa
+  webhook_url:
   
   
   messages:
