@@ -875,7 +875,7 @@ war:
       # Requires townblock_hp and townblocks_switch_towns to be true. When a townblock is dropped to 0hp, is it taken out of the war for good?
       # When true, the townblock can only be fought over once.
       # When false, the townblock will be able to be fought over again after a configured amount of time set at war.townblocks.resurrect_delay.
-      townblocks_single_use: 'false'
+      townblocks_single_use: 'true'
   
       # How many lives do normal residents get, before they are removed from the war. Set to -1 for unlimited lives.
       resident_lives: '-1'
@@ -910,7 +910,7 @@ war:
       build_and_destroy_editable_materials: 'true'
   
       # When true, players will be able to switch use in warzones during nation wars.
-      switch_use: 'false'
+      switch_use: 'true'
   
       # When true, players will be able to item use in warzones during nation wars.
       item_use: 'true'
@@ -962,7 +962,7 @@ war:
         allow_surrendering_for_money: 'true'
   
       # How much time must pass between a town's last war (of any type) before a town can join a alliance war?
-      cooldown: 0d
+      cooldown: 1d
   
       # In alliance war, do the townblocks have HP which can be fought over?
       townblock_hp: 'true'
@@ -978,7 +978,7 @@ war:
       # Requires townblock_hp and townblocks_switch_towns to be true. When a townblock is dropped to 0hp, is it taken out of the war for good?
       # When true, the townblock can only be fought over once.
       # When false, the townblock will be able to be fought over again after a configured amount of time set at war.townblocks.resurrect_delay.
-      townblocks_single_use: 'false'
+      townblocks_single_use: 'true'
   
       # How many lives do normal residents get, before they are removed from the war.
       resident_lives: '-1'
