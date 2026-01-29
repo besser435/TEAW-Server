@@ -834,7 +834,7 @@ war:
   
       # The maximum time that a nation war can last.
       # Set to 0m to disable and have nation wars last until other win-conditions are met.
-      max_time_duration: 0m
+      max_time_duration: 4320m
   
   
       max_score:
@@ -937,7 +937,7 @@ war:
   
       # The maximum time that a alliance war can last.
       # Set to 0m to disable and have alliance wars last until other win-conditions are met.
-      max_time_duration: 0m
+      max_time_duration: 4320m
   
   
       max_score:
