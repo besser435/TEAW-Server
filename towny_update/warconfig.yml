@@ -888,11 +888,11 @@ war:
       mayor_death: 'false'
   
       # Does the winning nation conquer towns which are knocked out of the war?
-      winner_conquers_towns: 'false'
+      winner_conquers_towns: 'true'
   
       # Does the winning nation gain Occupational Control, for the time period set in the Occupation Settings section of the config?
       # This setting is not used when the above winner_conquers_towns is set to true.
-      winner_gains_occupational_control: 'true'
+      winner_gains_occupational_control: 'false'
   
       # How much money is automatically put into the war spoils at the beginning of a nation war.
       base_spoils: '0.0'
