@@ -1172,7 +1172,7 @@ war:
   books:
   
     # When false the start-of-war book is sent to everyone online, not just the players limited to the war.
-    war_start_books_goes_only_to_warriors: 'false'
+    war_start_books_goes_only_to_warriors: 'true'
   
     # When false the hourly war update book is sent to everyone online, not just the players limited to the war.
     war_update_books_goes_only_to_warriors: 'true'
