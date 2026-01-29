@@ -380,7 +380,7 @@ war:
     riot:
   
       # Does the server allow riots?
-      enabled: 'true'
+      enabled: 'false'
   
       # How many seconds of delay before a riot war begins?
       startup_delay: '259200'
@@ -457,7 +457,7 @@ war:
     town_war:
   
       # Does the server allow town wars?
-      enabled: 'true'
+      enabled: 'false'
   
       # How many seconds of delay before a town war begins?
       startup_delay: '259200'
@@ -555,7 +555,7 @@ war:
     independence_war:
   
       # Does the server allow independence wars?
-      enabled: 'true'
+      enabled: 'false'
   
       # When true, all towns in the nation that are conquered will automatically join the rebel side, all non-conquered towns join the government side.
       # When false, the capital town joins the govt side, the town which started the war of independence join the rebels, and all other towns' mayors get
@@ -642,7 +642,7 @@ war:
     civil_war:
   
       # Does the server allow civil wars?
-      enabled: 'true'
+      enabled: 'false'
   
       # How many seconds of delay before a civil war begins?
       startup_delay: '259200'
@@ -817,7 +817,7 @@ war:
     nation_war:
   
       # Does the server allow nation wars?
-      enabled: 'false'
+      enabled: 'true'
   
       # When true, upon declaring war against a nation, both nations enemy each other.
       does_nation_war_automaticly_add_enemy: 'true'
