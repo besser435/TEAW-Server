@@ -149,7 +149,7 @@ war:
     block_hp:
   
       # How much HP does a normal TownBlock receive.
-      town_block_hp: '60'
+      town_block_hp: '30'
   
       # How much HP does a town Homeblock receive.
       home_block_hp: '120'
@@ -817,7 +817,7 @@ war:
     nation_war:
   
       # Does the server allow nation wars?
-      enabled: 'true'
+      enabled: 'false'
   
       # When true, upon declaring war against a nation, both nations enemy each other.
       does_nation_war_automaticly_add_enemy: 'true'
