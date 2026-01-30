@@ -250,7 +250,7 @@ war:
   
     # Number of Towny new days until a conquered town loses its conquered status.
     # Set to -1 if you want Towns to remain conquered forever.
-    conquer_time: '-1'
+    conquer_time: '3'
   
     # When true, a town will not be able to kick their members, or have their members use /t leave.
     conquering_prevents_town_leave: 'false'
