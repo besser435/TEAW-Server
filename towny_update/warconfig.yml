@@ -859,7 +859,7 @@ war:
         allow_surrendering_for_money: 'true'
   
       # How much time must pass between a town's last war (of any type) before a town can join a nation war?
-      cooldown: 1d
+      cooldown: 0d
   
       # In nation war, do the townblocks have HP which can be fought over?
       townblock_hp: 'true'
