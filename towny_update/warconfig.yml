@@ -17,7 +17,7 @@ language: en-US.yml
 war:
   
   # Number of seconds given to choose your team when a riot or civil war is being launched.
-  team_selection_time: '120'
+  team_selection_time: '0'
   
   # When true, EventWar will make players drop their inventory when they die during a war.
   # This setting overrides Towny and other plugins which set allow keep-inventory-on-death.
@@ -246,7 +246,7 @@ war:
     # If set to true, and the War Type's winner_conquers_towns is also true, nation capitals will not switch nations.
     # Used only when the WarType has winner_conquers_towns set to true.
     # If this setting is false, and winner_conquers_towns is true, the losing nation will be deleted and the capital will change nations.
-    winner_takes_ownership_of_town_excludes_nation_capitals: 'true'
+    winner_takes_ownership_of_town_excludes_nation_capitals: 'false'
   
     # Number of Towny new days until a conquered town loses its conquered status.
     # Set to -1 if you want Towns to remain conquered forever.
@@ -962,7 +962,7 @@ war:
         allow_surrendering_for_money: 'true'
   
       # How much time must pass between a town's last war (of any type) before a town can join a alliance war?
-      cooldown: 1d
+      cooldown: 0d
   
       # In alliance war, do the townblocks have HP which can be fought over?
       townblock_hp: 'true'
