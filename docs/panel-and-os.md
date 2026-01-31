@@ -70,6 +70,7 @@ When creating new users, ensure they reset their passwords, and have as few perm
 * `25565/TCP` TEAW Minecraft
 * `24454/UDP` TEAW Simple Voice Chat
 * `25575/TCP` DIET Test Minecraft
+* `25595/TCP` DIET War Test Minecraft
 * `22000/TCP` SSH
 * `5001/TCP` Backup service
 
