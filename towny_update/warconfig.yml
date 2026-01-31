@@ -1153,7 +1153,8 @@ war:
     # A list of blocks that will not be exploded, mostly because they won't regenerate properly.
     # These blocks will also protect the block below them, so that blocks like doors do not dupe themselves.
     # Only under affect when explosions_break_blocks is true.
-    explosions_ignore_list: 
+    # if this is left empty it refills to a bunch of stupid blocks we dont want people building bases out of
+    explosions_ignore_list: ENDER_CHEST
   
     # When true, a towns residents will also be able to grief their own town, in the same way enemies are able to.
     # When false, residents will follow normal town permissions in their town.
