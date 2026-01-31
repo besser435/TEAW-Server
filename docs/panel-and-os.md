@@ -63,10 +63,15 @@ When creating new users, ensure they reset their passwords, and have as few perm
 <sub>why the hell does crafty not have a "reset password on next logon" feature like AD or AMP</sub>
 
 ## Firewall
-Only open port is 25565/TCP in for Minecraft, and 22000 for SSH.
 - `ufw status verbose` status, or `ufw status numbered`
 - `sudo ufw allow 25565/tcp` open a port
 - `ufw delete` delete a rule
+
+* `25565/TCP` TEAW Minecraft
+* `24454/UDP` TEAW Simple Voice Chat
+* `25575/TCP` DIET Test Minecraft
+* `22000/TCP` SSH
+* `5001/TCP` Backup service
 
 ## Cloudflare Tunnels
 Le tunnels:
