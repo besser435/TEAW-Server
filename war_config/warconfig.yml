@@ -1,7 +1,7 @@
   
 version:
   # This is the current version. Please do not edit.
-  version: 0.0.164
+  version: 0.0.138
   
 # Language to use.
 language: en-US.yml
@@ -50,27 +50,6 @@ war:
     # When true, new towns will collect war tokens while they are immune from wars.
     do_new_towns_collect_war_tokens: 'false'
   
-  # When true, players cannot join a town while that town has a pending or active war.
-  war_prevents_joining_town: 'false'
-  
-  # When true, mayors cannot join a nation while that nation has a pending or active war.
-  war_prevents_joining_nation: 'false'
-  
-  # When true, players cannot use /t leave while their town has a pending or active war.
-  war_prevents_leaving_town: 'false'
-  
-  # When true, towns with a pending or active war cannot be deleted.
-  war_prevents_deleting_town: 'true'
-  
-  # When true, nations with a pending or active war cannot be deleted.
-  war_prevents_deleting_nation: 'true'
-  
-  # When true, towns with a war in any phase cannot deposit to their banks.
-  war_prevents_depositing_to_town_bank: 'false'
-  
-  # When true, nations with a war in any phase cannot deposit to their banks.
-  war_prevents_depositing_to_nation_bank: 'false'
-  
   # When true, players cannot join a town while that town has an active war.
   active_war_prevents_joining_town: 'false'
   
@@ -88,15 +67,6 @@ war:
   
   # When true, nations with active wars cannot be deleted.
   active_war_prevents_deleting_nation: 'false'
-  
-  # When true, while Towns have an active war, mob spawns will be forced on.
-  active_war_prevents_mob_removal: 'false'
-  
-  # When true, towns with a war in the active phase cannot deposit to their banks.
-  active_war_prevents_depositing_to_town_bank: 'false'
-  
-  # When true, nations with a war in the active phase cannot deposit to their banks.
-  active_war_prevents_depositing_to_nation_bank: 'false'
   
   # When set to true the war beginning and ending messages will be sent to everyone that is online, and not just the people involved in the war.
   war_beginning_and_ending_message_broadcasts_globally: 'true'
@@ -164,14 +134,8 @@ war:
     # When true, invisible players will not be able to attack a townblock's HP.
     ignore_invisible_players: 'true'
   
-    # When true only the town's homeblock will be put into the fight.
-    only_homeblock_is_attackable: 'false'
-  
     # If true and DecentHolograms is installed, TownBlock HP stat will be displayed in each plot as a hologram.
     use_hp_holograms: 'true'
-  
-    # If true a tower of particle effects will mark a town's homeblock, making it easier to find.
-    show_homeblock_particles: 'false'
   
     # If true, fireworks will be launched at plots being attacked or healed in war every war tick.
     firework_on_attacked: 'true'
@@ -251,12 +215,6 @@ war:
   
     # When true, a town will not be able to kick their members, or have their members use /t leave.
     conquering_prevents_town_leave: 'true'
-  
-    # When true, a town will not be able to delete itself using /t delete.
-    conquering_prevents_town_delete: 'false'
-  
-    # When true, a town who is conquered will not join nation vs town, nation, alliance and world wars that their nation takes part in.
-    conquering_prevents_towns_joining_wars: 'false'
   
     # When true, a town which has been conquered by a nation can be griefed by the king.
     conquering_allows_king_to_grief: 'true'
@@ -554,17 +512,11 @@ war:
       # Does the server allow independence wars?
       enabled: 'true'
   
-      # When true, all towns in the nation that are conquered will automatically join the rebel side, all non-conquered towns join the government side.
-      # When false, the capital town joins the govt side, the town which started the war of independence join the rebels, and all other towns' mayors get
-      # to choose which side of the war they will fight for.
-      do_war_sides_get_determined_by_conquered_status: 'false'
-  
       # How many seconds of delay before a independence war begins?
       startup_delay: '259200'
   
       # How long a town has to be a member of a nation before they can declare a independence war.
       # This does not affect the king of the nation. This will prevent young nations from having independencewars started by their normal mayors.
-      # Set to 0d to ignore this setting and require no time period.
       nation_membership_time_requirement: 14d
   
       # How many people need to be online in the nation, for a independencewar declaration of war to be used.
@@ -586,10 +538,6 @@ war:
   
         # What score does someone have to reach to win the independence war.
         winning_score: '100'
-  
-        # When set to true, if the expiry time for the independence war is reached, is winning score ignored,
-        # allowing the towns trying to gain independence to go free, even if their score is not higher than their nation's towns.
-        winning_score_ignored_when_time_runs_out: 'false'
   
       # Is /surrender allowed in independence war? Independence War surrenders involve giving up and does not
       # create a confirmation for another party.
@@ -650,7 +598,6 @@ war:
   
       # How long a town has to be a member of a nation before they can declare a civil war.
       # This does not affect the king of the nation. This will prevent young nations from having civilwars started by their normal mayors.
-      # Set to 0d to ignore this setting and require no time period.
       nation_membership_time_requirement: 14d
   
       # How many people need to be online in the nation, for a civilwar declaration of war to be used.
@@ -715,96 +662,6 @@ war:
   
       # When true, players will be able to item use in warzones during civil wars.
       item_use: 'true'
-  
-    ############################################################
-    # +------------------------------------------------------+ #
-    # |             Nation VS Town War Settings              | #
-    # +------------------------------------------------------+ #
-    ############################################################
-    nation_vs_town_war:
-  
-      # Does the server allow nation vs town wars?
-      enabled: 'false'
-  
-      # How many seconds of delay before a nation vs town war begins?
-      startup_delay: '30'
-  
-      # How many people need to be online in both the nation sieging the town, and the town being sieged, for a nation vs town war declaration of war to be used.
-      min_online_in_nation_and_sieged_town: '10'
-  
-      # When true, a nation or sieged town with a population lower than the min_online_each_nation value, will be able to nation vs town war if
-      # their entire nation or town is online.
-      min_online_ignores_low_pop: 'false'
-  
-      # The maximum time that a nation vs town war can last.
-      # Set to 0m to disable and have nation vs town wars last until other win-conditions are met.
-      max_time_duration: 48h
-  
-  
-      max_score:
-  
-        # When enabled a nation vs town wars will end when the first town reaches the max score.
-        enabled: 'false'
-  
-        # What score does someone have to reach to win the nation vs town war.
-        winning_score: '100'
-  
-      # Is /surrender allowed in nation vs town wars? Siege war surrenders involve giving up and does not
-      # create a confirmation for another party.
-      surrender_allowed: 'true'
-  
-      # How much time must pass between a town's last war (of any type) before a town can join a nation vs town war?
-      cooldown: 5d
-  
-      # In nation vs town war, do the townblocks have HP which can be fought over?
-      townblock_hp: 'true'
-  
-      # Requires townblock_hp to be true. When a townblock is dropped to 0hp, does it change ownership
-      # to the town that conquered it?
-      townblocks_switch_towns: 'false'
-  
-      # Requires townblock_hp and townblocks_switch_towns to be true. When a townblock is dropped to 0hp, is it taken out of the war for good?
-      # When true, the townblock can only be fought over once.
-      # When false, the townblock will be able to be fought over again after a configured amount of time set at war.townblocks.resurrect_delay.
-      townblocks_single_use: 'true'
-  
-      # How many lives do normal residents get, before they are removed from the war. Set to -1 for unlimited lives.
-      resident_lives: '5'
-  
-      # How many lives do mayors get, before they are removed from the war. Set to -1 for unlimited lives.
-      mayor_lives: '5'
-  
-      # Does a town get removed from the nation vs town war if their mayor is killed to the point they have no lives left?
-      # Does a nation get removed from the nation vs town war if their king is killed to the point they have no lives left?
-      mayor_death: 'true'
-  
-      # Does the sieging nation conquer the sieged town when the sieged town is knocked out of the war?
-      winner_conquers_sieged_towns: 'true'
-  
-      # Does the winning nation gain Occupational Control, for the time period set in the Occupation Settings section of the config?
-      # This setting is not used when the above winner_takes_over_town is set to true.
-      winner_gains_occupational_control: 'false'
-  
-      # How much money is automatically put into the war spoils at the beginning of a nation vs town war.
-      base_spoils: '1000.0'
-  
-      # How many points are awarded for killing an enemy.
-      points_per_kill: '10'
-  
-      # How many tokens does it cost a town to purchase a nation vs town war Declaration of War.
-      token_cost: '150'
-  
-      # When true, a neutral nation or neutral town cannot have a nation vs town war.
-      does_neutrality_prevent_nation_vs_town_war: 'false'
-  
-      # When true the editable_materials in the WarZone Block Permissions section will be used.
-      build_and_destroy_editable_materials: 'false'
-  
-      # When true, players will be able to switch use in warzones during nation vs town wars.
-      switch_use: 'false'
-  
-      # When true, players will be able to item use in warzones during nation vs town wars.
-      item_use: 'false'
   
     ############################################################
     # +------------------------------------------------------+ #
@@ -1060,10 +917,6 @@ war:
       # In world war, do the townblocks have HP which can be fought over?
       townblock_hp: 'true'
   
-      # In world wars that have townblock HP enabled or griefing enabled, are players required to attack the capital cities' townblocks last?
-      # When true the capital cities' townblocks will only be attackable and griefable after the nation has no other towns left in the war.
-      attack_capital_city_last: 'true'
-  
       # Requires townblock_hp to be true. When a townblock is dropped to 0hp, does it change ownership
       # to the town that conquered it?
       townblocks_switch_towns: 'false'
@@ -1132,13 +985,6 @@ war:
     # Eg: '*,-chest,-furnace'
     editable_materials: '*'
   
-    # The list of 'switch' blocks that will be usable during wars which have a war type with the switch_use setting set to true.
-    # '*' = Allow all materials.
-    # Prepend a '-' in front of a material to remove it. Used in conjunction with when you use '*'.
-    # Eg: '*,-chest,-furnace'
-    # The above will allow all switches except chests and furnaces.
-    usable_switches: '*'
-  
     # Add '-fire' to editable materials for complete protection when setting is false. This prevents fire to be created and spread.
     fire: 'true'
     explosions: 'true'
@@ -1191,7 +1037,7 @@ discord:
   enabled: 'true'
   
   # Supply your valid discord webhook url here.
-  webhook_url: revoked :3
+  webhook_url: https://discord.com/api/webhooks/1465828415776096348/KupFE7FZj7DYy7Xm3J1mdehCaiV2aY9Lmh1Y_dLQoGCgexXVMtbNGCKPnnu-j7P6YG2x
   
   
   messages:
