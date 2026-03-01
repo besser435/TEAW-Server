@@ -51,13 +51,13 @@ war:
     do_new_towns_collect_war_tokens: 'false'
   
   # When true, players cannot join a town while that town has a pending or active war.
-  war_prevents_joining_town: 'true'
+  war_prevents_joining_town: 'false'
   
   # When true, mayors cannot join a nation while that nation has a pending or active war.
-  war_prevents_joining_nation: 'true'
+  war_prevents_joining_nation: 'false'
   
   # When true, players cannot use /t leave while their town has a pending or active war.
-  war_prevents_leaving_town: 'true'
+  war_prevents_leaving_town: 'false'
   
   # When true, towns with a pending or active war cannot be deleted.
   war_prevents_deleting_town: 'true'
@@ -70,9 +70,6 @@ war:
   
   # When true, nations with a war in any phase cannot deposit to their banks.
   war_prevents_depositing_to_nation_bank: 'false'
-  
-
-
   
   # When true, players cannot join a town while that town has an active war.
   active_war_prevents_joining_town: 'true'
@@ -817,7 +814,7 @@ war:
     nation_war:
   
       # Does the server allow nation wars?
-      enabled: 'false'
+      enabled: 'true'
   
       # When true, upon declaring war against a nation, both nations enemy each other.
       does_nation_war_automaticly_add_enemy: 'true'
@@ -878,10 +875,10 @@ war:
       townblocks_single_use: 'true'
   
       # How many lives do normal residents get, before they are removed from the war. Set to -1 for unlimited lives.
-      resident_lives: '-1'
+      resident_lives: '99'
   
       # How many lives do mayors get, before they are removed from the war. Set to -1 for unlimited lives.
-      mayor_lives: '-1'
+      mayor_lives: '99'
   
       # Does a town get removed from the nation war if their mayor is killed to the point they have no lives left?
       # Does a nation get removed from the nation war if their king is killed to the point they have no lives left?
@@ -923,7 +920,7 @@ war:
     alliance_war:
   
       # Does the server allow alliance wars?
-      enabled: 'true'
+      enabled: 'false'
   
       # Setting this to false does nothing. Alliance war automatically makes enemies of each side.
       does_alliance_war_automaticly_add_enemy: 'true'
@@ -981,10 +978,10 @@ war:
       townblocks_single_use: 'true'
   
       # How many lives do normal residents get, before they are removed from the war.
-      resident_lives: '-1'
+      resident_lives: '99'
   
       # How many lives do mayors get, before they are removed from the war.
-      mayor_lives: '-1'
+      mayor_lives: '99'
   
       # Does a town get removed from the alliance war if their mayor is killed to the point they have no lives left?
       # Does a nation get removed from the alliance war if their king is killed to the point they have no lives left?
@@ -1153,7 +1150,6 @@ war:
     # A list of blocks that will not be exploded, mostly because they won't regenerate properly.
     # These blocks will also protect the block below them, so that blocks like doors do not dupe themselves.
     # Only under affect when explosions_break_blocks is true.
-    # if this is left empty it refills to a bunch of stupid blocks we dont want people building bases out of
     explosions_ignore_list: ENDER_CHEST
   
     # When true, a towns residents will also be able to grief their own town, in the same way enemies are able to.
