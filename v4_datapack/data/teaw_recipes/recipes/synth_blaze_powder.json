@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "X X",
+    " # ",
+    " $ "
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    "$":
+    {
+      "item": "minecraft:flint_and_steel"
+    },
+    "X":
+    {
+      "item": "create:golden_sheet"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:blaze_powder",
+    "count": 1
+  }
+}

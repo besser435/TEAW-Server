@@ -1,0 +1,36 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "*": {
+      "item": "create:experience_block"
+    },
+    "P": {
+      "item": "minecraft:sugar"
+    },
+	"L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+	"B": {
+      "item": "minecraft:enchanted_book"
+    },
+	"#": {
+      "item": "minecraft:leather_leggings"
+    },
+    "S": {
+      "item": "minecraft:sculk"
+    }
+  },
+  "pattern": [
+    " *** ",
+    "*PLP*",
+    "*LBL*",
+    "*S#S*",
+    " *** "
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:enchanted_book",
+	"nbt": "{StoredEnchantments:[{id:\"minecraft:swift_sneak\",lvl:3s}]}"
+  }
+}

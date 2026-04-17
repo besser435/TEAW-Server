@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#G#",
+        "GDG",
+        "#G#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:leather"
+        },
+        "G": {
+            "item": "minecraft:grass_block"
+        },
+        "D": {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result": {
+        "item": "minecraft:sheep_spawn_egg",
+        "count": 1
+    }
+}

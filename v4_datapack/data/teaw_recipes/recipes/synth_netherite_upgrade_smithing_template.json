@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#n#",
+        "#N#",
+        "D#D"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:diamond"
+        },
+        "n": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "N": {
+            "item": "minecraft:netherrack"
+        },
+        "D": {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result": {
+        "item": "minecraft:netherite_upgrade_smithing_template",
+        "count": 1
+    }
+}

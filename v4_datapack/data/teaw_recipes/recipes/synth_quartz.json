@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#L#",
+        "###"
+    ],
+    "key": {
+        "#": [
+            {
+                "item": "minecraft:sand"
+            },
+            {
+                "item": "minecraft:red_sand"
+            }
+        ],
+        "L": {
+            "item": "minecraft:lava_bucket"
+        }
+    },
+    "result": {
+        "item": "minecraft:quartz",
+        "count": 8
+    }
+}

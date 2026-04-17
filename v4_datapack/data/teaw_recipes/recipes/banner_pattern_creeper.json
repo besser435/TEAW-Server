@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:gunpowder"
+    },
+    "X":
+    {
+      "item": "minecraft:paper"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:creeper_banner_pattern",
+    "count": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "X#X",
+    "#X#",
+    "X#X"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:ink_sac"
+    },
+    "X":
+    {
+      "item": "minecraft:sugar_cane"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:honeycomb",
+    "count": 5
+  }
+}

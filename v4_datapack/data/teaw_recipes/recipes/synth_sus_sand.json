@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#P#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:sand"
+        },
+        "P": {
+            "item": "minecraft:poisonous_potato"
+        }
+    },
+    "result": {
+        "item": "minecraft:suspicious_sand",
+        "count": 8
+    }
+}

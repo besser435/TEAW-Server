@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#i#",
+        "TTT"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:magenta_concrete"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "T": {
+            "item": "toendallmods:steel_block"
+        }
+    },
+    "result": {
+        "item": "minecraft:shulker_shell",
+        "count": 1
+    }
+}

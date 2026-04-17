@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "#X#",
+    "X#X",
+    "#X#"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:netherrack"
+    },
+    "X":
+    {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:soul_soil",
+    "count": 8
+  }
+}

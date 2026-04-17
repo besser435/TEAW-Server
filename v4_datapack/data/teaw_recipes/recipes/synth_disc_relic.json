@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "S*G",
+    "#B#",
+    "G*S"
+  ],
+  "key":
+  {
+    "S":
+    {
+      "item": "minecraft:suspicious_sand"
+    },
+	"G":
+    {
+      "item": "minecraft:suspicious_gravel"
+    },
+	"B":
+    {
+      "item": "minecraft:brush"
+    },
+	"*":
+    {
+      "item": "minecraft:netherrack"
+    },
+	"#":
+    {
+      "item": "minecraft:netherite_scrap"
+    }
+
+  },
+  "result":
+  {
+    "item": "minecraft:music_disc_relic",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#n#",
+        "#P#",
+        "D#D"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:diamond"
+        },
+        "n": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "P": {
+            "item": "minecraft:purpur_block"
+        },
+        "D": {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result": {
+        "item": "minecraft:spire_armor_trim_smithing_template",
+        "count": 1
+    }
+}

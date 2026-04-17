@@ -1,0 +1,17 @@
+{
+  "type": "create:mechanical_crafting",
+  "pattern": [
+    "###",
+    "# #",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:ingots/steel"
+    }
+  },
+  "result": {
+    "item": "toendallmods:steel_armor_leggings"
+  },
+  "acceptMirrored": true
+}

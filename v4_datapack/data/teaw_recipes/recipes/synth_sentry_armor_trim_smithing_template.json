@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#n#",
+        "#C#",
+        "D#D"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:diamond"
+        },
+        "n": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "C": {
+            "item": "minecraft:crossbow"
+        },
+        "D": {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result": {
+        "item": "minecraft:sentry_armor_trim_smithing_template",
+        "count": 1
+    }
+}

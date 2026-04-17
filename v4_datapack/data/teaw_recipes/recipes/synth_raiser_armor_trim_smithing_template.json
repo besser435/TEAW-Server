@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#n#",
+        "#L#",
+        "D#D"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:diamond"
+        },
+        "n": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "L": {
+            "item": "minecraft:light_gray_terracotta"
+        },
+        "D": {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result": {
+        "item": "minecraft:raiser_armor_trim_smithing_template",
+        "count": 1
+    }
+}

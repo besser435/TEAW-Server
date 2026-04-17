@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "X+X",
+    "X-X",
+    "*#*"
+  ],
+  "key":
+  {
+    "X":
+    {
+      "item": "create:iron_sheet"
+    },
+    "*":
+    {
+      "item": "create:golden_sheet"
+    },
+    "+":
+    {
+      "item": "minecraft:gunpowder"
+    },
+    "#":
+    {
+      "item": "minecraft:netherrack"
+    },
+    "-":
+    {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "result":
+  {
+    "item": "create:blaze_burner",
+    "count": 1
+  }
+}

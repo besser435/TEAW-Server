@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "#B#",
+    "B*B",
+    "#B#"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:seagrass"
+    },
+	"*":
+    {
+      "item": "minecraft:diamond_block"
+    },
+    "B":
+    {
+      "item": "minecraft:bone_meal"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:turtle_egg",
+    "count": 1
+  }
+}

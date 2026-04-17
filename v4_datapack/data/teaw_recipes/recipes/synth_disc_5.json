@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#S#",
+        "SMS",
+        "#S#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:echo_shard"
+        },
+        "S": {
+            "item": "minecraft:sculk"
+        },
+        "M": {
+            "item": "minecraft:music_disc_otherside"
+        }
+    },
+    "result": {
+        "item": "minecraft:music_disc_5",
+        "count": 1
+    }
+}

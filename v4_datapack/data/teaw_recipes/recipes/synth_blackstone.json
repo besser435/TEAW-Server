@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "X":
+    {
+      "item": "minecraft:black_dye"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:blackstone",
+    "count": 8
+  }
+}

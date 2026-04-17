@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:gold_nugget"
+    },
+    "X":
+    {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:glowstone_dust",
+    "count": 2
+  }
+}

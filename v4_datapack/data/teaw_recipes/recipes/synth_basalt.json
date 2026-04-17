@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "#X#",
+    "X#X",
+    "#X#"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "X":
+    {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:basalt",
+    "count": 8
+  }
+}

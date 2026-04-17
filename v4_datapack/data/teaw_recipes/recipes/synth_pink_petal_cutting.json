@@ -1,0 +1,15 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:cherry_leaves"
+    }
+  ],
+  "processingTime": 200,
+  "results": [
+    {
+      "count": 6,
+      "item": "minecraft:pink_petals"
+    }
+  ]
+}

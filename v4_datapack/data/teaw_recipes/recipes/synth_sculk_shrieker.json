@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        "# #",
+        "BSB"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:bone"
+        },
+        "B": {
+            "item": "minecraft:bone_block"
+        },
+        "S": {
+            "item": "minecraft:sculk_catalyst"
+        }
+    },
+    "result": {
+        "item": "minecraft:sculk_shrieker",
+        "count": 1
+    }
+}

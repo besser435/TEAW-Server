@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "*#*",
+    "#X#",
+    "*#*"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:emerald"
+    },
+    "X":
+    {
+      "item": "minecraft:diamond_block"
+    },
+    "*":
+    {
+      "item": "minecraft:leather"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:villager_spawn_egg",
+    "count": 1
+  }
+}

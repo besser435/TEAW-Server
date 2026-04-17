@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:stone_bricks"
+    },
+    "X":
+    {
+      "item": "minecraft:purple_dye"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:purpur_block",
+    "count": 1
+  }
+}

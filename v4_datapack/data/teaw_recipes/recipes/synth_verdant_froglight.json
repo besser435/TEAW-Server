@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:glowstone"
+		},
+		{
+			"item": "minecraft:glowstone"
+		},
+		{
+			"item": "minecraft:glowstone"
+		},
+		{
+			"item": "minecraft:glowstone"
+		},
+		{
+			"item": "minecraft:green_dye"
+		},
+		{
+			"item": "minecraft:slime_ball"
+		}
+	],
+    "result": {
+        "item": "minecraft:verdant_froglight",
+        "count": 4
+    }
+}

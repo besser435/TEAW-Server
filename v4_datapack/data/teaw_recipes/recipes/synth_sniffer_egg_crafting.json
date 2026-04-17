@@ -1,0 +1,26 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": true,
+  "key": {
+    "A": {
+      "item": "minecraft:suspicious_sand"
+    },
+    "P": {
+      "item": "minecraft:egg"
+    },
+    "S": {
+      "item": "minecraft:brush"
+    }
+  },
+  "pattern": [
+    " AAA ",
+    "AAPAA",
+    "APSPA",
+    "AAPAA",
+    " AAA "
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:sniffer_egg"
+  }
+}

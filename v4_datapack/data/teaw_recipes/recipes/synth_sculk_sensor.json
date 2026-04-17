@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "#O#",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:sculk"
+        },
+        "O": {
+            "item": "minecraft:observer"
+        }
+    },
+    "result": {
+        "item": "minecraft:sculk_sensor",
+        "count": 1
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#W#",
+        "WDW",
+        "#W#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:milk_bucket"
+        },
+        "W": {
+            "item": "minecraft:wheat"
+        },
+        "D": {
+            "item": "minecraft:diamond_block"
+        }
+    },
+    "result": {
+        "item": "minecraft:goat_spawn_egg",
+        "count": 1
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    "X":
+    {
+      "item": "minecraft:end_stone"
+    }
+  },
+  "result":
+  {
+    "item": "minecraft:end_rod",
+    "count": 2
+  }
+}
