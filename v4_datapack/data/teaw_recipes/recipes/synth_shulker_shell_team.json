@@ -12,9 +12,14 @@
         "i": {
             "item": "minecraft:iron_ingot"
         },
-        "T": {
+        "T": [
+        {
             "item": "toendallmods:steel_block"
+        },
+        {
+            "item": "createbigcannons:steel_block"
         }
+        ]
     },
     "result": {
         "item": "minecraft:shulker_shell",
