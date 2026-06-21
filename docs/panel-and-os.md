@@ -18,18 +18,19 @@ Crafty is a service. The following commands are helpful for services:
 - `systemctl is-enabled crafty` view status if it's enabled on boot
 
 ## TEAW Backups
-Backups are handled with Crafty. It runs a few minutes after the server restart and takes several minutes to complete.
+Backups are handled with Crafty.
 Ignore the `bluemap` directory, as its huge and does not need to be backed up, as it can be rebuilt from the world.
 
 > [!NOTE]
-> Crafty Docs recommends shutting the server down for backups due to how it works. This kind of sucks for players though, since
-backups take about 5 minutes.
+> The server is stopped for the duration of the backup. This isn't strictly needed, but is more safe.
+> This is why the server takes a while to reboot, as it has to backup things first. 
 > 
-> Perhaps in addition to the daily backups, we have a weekly maintenance period where the server stops to perform
-> a stopped backup. Could also get rid of the daily reboots and do it then.
 
 Backups are stored at `/var/opt/minecraft/crafty/crafty-4/backups/e97c3311-4330-4fb8-be4a-b74cfa6b734b` (maybe change this
 to not be in the Crafty directory)
+
+Offsite backups are downloaded to a different server with a simple Flask web server. This is overkill, but it works well. 
+The code and instructtions for that is at [/crappy-backups](/crappy-backups). Be sure to look in the configs for those scripts.
 
 > [!CAUTION]
 > Do NOT enable the "Compress Backup" option. The warning for this sounds like it enables some kind of world trimming or non-filesystem
@@ -80,8 +81,7 @@ Le tunnels:
 - Bluemap on port 8100 at [map.toendallwars.org]([map.toendallwars.org) for HTTP `localhost:8100`
 - TEAW API on port 1850 at [tapi.toendallwars.org]([tapi.toendallwars.org) for HTTP `localhost:1850`
 - Crafty Panel on port 8443 for HTTPS `localhost:8443`
-
-For the Crafty tunnel to work, `socks` in the tunnel connection settings needs to be enabled, along with `No TLS Verify` under
+  - For the Crafty tunnel to work, `socks` in the tunnel connection settings needs to be enabled, along with `No TLS Verify` under
 TLS.
 
 ## OS and RAID
