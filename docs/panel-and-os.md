@@ -67,13 +67,13 @@ When creating new users, ensure they reset their passwords, and have as few perm
 - `sudo ufw allow 25565/tcp` open a port
 - `ufw delete` delete a rule
 
-* `25565/TCP` TEAW Minecraft
-* `24454/UDP` TEAW Simple Voice Chat
-* `25505/TCP/UDP` TEAW Aeronautics Server
-* `25575/TCP` DIET Test Minecraft
-* `25595/TCP` DIET War Test Minecraft
+* `25565/TCP` TEAW Earth Minecraft
+* `24454/UDP` TEAW Earth Simple Voice Chat
+* `1815/TCP`  TEAW Earth Voting Rewards
+* `25505/TCP/UDP` TEAW Aeronautics Server (UDP for Sable networking)
+* `25575/TCP` DIET World Test Minecraft
 * `22000/TCP` SSH
-* `5001/TCP` Backup service
+* `5001/TCP from backup server IP` Backup service
 
 ## Cloudflare Tunnels
 Le tunnels:
