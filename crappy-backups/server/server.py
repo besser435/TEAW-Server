@@ -28,5 +28,30 @@ def download_latest_backup():
         as_attachment=True,
         download_name=os.path.basename(latest_file)
     )
+
+
+@app.route("/backups/manual", methods=["GET"])
+def download_manual_backup():
+    token = request.headers.get("Authorization")
+    if token != f"Bearer {conf.AUTH_TOKEN}":
+        abort(401)
+
+    backup_dir = Path(conf.MANUAL_BACKUP_DIR)
+    if not backup_dir.exists() or not backup_dir.is_dir():
+        abort(500, description="Backup directory does not exist.")
+
+    tar_files = list(backup_dir.glob("*.tar.zst"))
+    if not tar_files:
+        abort(404, description="No backup files found.")
+
+    latest_file = max(tar_files, key=lambda f: f.stat().st_ctime)
+    # st_ctime shows as deprecated on win32, but works on Linux
+
+    return send_file(
+        latest_file,
+        mimetype="application/x-tar",
+        as_attachment=True,
+        download_name=os.path.basename(latest_file)
+    )
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5001)
