@@ -68,7 +68,7 @@ When creating new users, ensure they reset their passwords, and have as few perm
 - `sudo ufw allow 25565/tcp` open a port
 - `ufw delete` delete a rule
 
-* `25565/TCP` TEAW Earth Minecraft
+* `25565/TCP/UDP` TEAW Earth Minecraft (UDP for Sable networking)
 * `24454/UDP` TEAW Earth Simple Voice Chat
 * `1815/TCP`  TEAW Earth Voting Rewards
 * `25505/TCP/UDP` TEAW Aeronautics Server (UDP for Sable networking)
